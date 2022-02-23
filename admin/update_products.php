@@ -7,7 +7,7 @@ include 'connection.inc.php';
 if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
     $id = $_GET['edit'];
 
-    $select_single_data = "SELECT * FROM `jag_secretary` WHERE id=$id";
+    $select_single_data = "SELECT * FROM `jag_product` WHERE id=$id";
     $result = mysqli_query($connection, $select_single_data);
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
@@ -78,6 +78,11 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
                                             <input type="text" name="name" value="<?php echo $row['title']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                         </div>
+                                       <div class="mb-3 col-sm-12">
+                                            <label for="exampleInputEmail1" class="form-label">Category</label>
+                                            <input type="text" name="category" value="<?php echo $row['category']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                                        </div>
                                         <div class="md-form col-sm-12">
                                             <label data-error="wrong" data-success="right" for="defaultForm-email">Existing Image</label><br>
                                             <img name="img" height="100px" width="100px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"' ?> class="img-fluid mb-2" alt="Legal Doc" />
@@ -87,6 +92,17 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
                                         <div class="md-form col-sm-12">
                                             <label data-error="wrong" data-success="right" for="defaultForm-email">Image</label>
                                             <input name="img1" type="file" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+
+                                        </div>
+                                        <div class="md-form col-sm-12">
+                                            <label data-error="wrong" data-success="right" for="defaultForm-email">Existing Brochure</label><br>
+                                          <img name="bro" height="100px" width="100px" <?php echo ' src="data:brochure/jpeg;base64,' . base64_encode($row['brochure']) . '"' ?> class="img-fluid mb-2" alt="Legal Doc" />
+                                             <!--<input  type="file" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name"> -->
+											<!--<object type="application/pdf" <?php echo ' data="data:application/pdf;base64,' . base64_encode($row['brochure']) . '"' ?> width="300" height="200"></object>-->
+                                        </div>
+                                        <div class="md-form col-sm-12">
+                                            <label data-error="wrong" data-success="right" for="defaultForm-email">Image</label>
+                                            <input name="bro1" type="file" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
 
                                         </div>
                                         <div class="form-group col-sm-12">
@@ -121,17 +137,29 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
 }
 if (isset($_POST['Submit'])) {
     $name = simplename($_POST['name']);
+    $category = simplename($_POST['category']);
     $description = simplename($_POST['description']);
 //     echo "<pre>";
 // print_r($_FILES);
-    if (!empty($_FILES['img1']['tmp_name'])) {
+    if (!empty($_FILES['img1']['tmp_name']) && !empty($_FILES['bro1']['tmp_name'])) {
         $images = addslashes(file_get_contents($_FILES['img1']['tmp_name']));
-        $update_img = "UPDATE `jag_secretary` SET `title`='$name',`description`='$description',`image`='$images' WHERE `id`='$id'";
+        $bro1 = addslashes(file_get_contents($_FILES['bro1']['tmp_name']));
+        $update_img = "UPDATE `jag_product` SET `title`='$name',`category`='$category',`description`='$description',`image`='$images',`brochure`='$bro1' WHERE `id`='$id'";
         $result = mysqli_query($connection, $update_img);
     }
+    else  if (!empty($_FILES['img1']['tmp_name']) ){
+      $images = addslashes(file_get_contents($_FILES['img1']['tmp_name']));
+      $update_img = "UPDATE `jag_product` SET `title`='$name',`category`='$category',`description`='$description',`image`='$images' WHERE `id`='$id'";
+      $result = mysqli_query($connection, $update_img);
+  }
+  else  if (!empty($_FILES['bro1']['tmp_name'])) {
+    $bro1 = addslashes(file_get_contents($_FILES['bro1']['tmp_name']));
+    $update_img = "UPDATE `jag_product` SET `title`='$name',`category`='$category',`description`='$description',`brochure`='$bro1' WHERE `id`='$id'";
+    $result = mysqli_query($connection, $update_img);
+}
     else {
         // $images = addslashes(file_get_contents($_FILES['img1']['tmp_name']));
-        $update_img = "UPDATE `jag_secretary` SET `title`='$name',`description`='$description' WHERE `id`='$id'";
+        $update_img = "UPDATE `jag_product` SET `title`='$name',`category`='$category',`description`='$description' WHERE `id`='$id'";
         $result = mysqli_query($connection, $update_img);
     }
    
@@ -145,7 +173,7 @@ if (isset($_POST['Submit'])) {
 
             echo "<script>
             setTimeout(function() {
-                window.location.replace('Products.php')
+                window.location.replace('products.php')
               }, 1000);
 
         </script>";

@@ -26,21 +26,10 @@ if(isset($_POST['submit'])){
 ?>
         
         
-        <!-- Page Header Start -->
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Contact Us</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Page Header End -->
+        <!--<img src="img/contact-us.jpg" style="width:100%"/>-->
+<video class="b-lazy b-loaded" controls="false" title="" autoplay="" loop="" muted="" style="width:100%;">
+                        <source type="video/mp4" src="img/traffic.mp4">
+                    </video>
         
         
         <!-- Contact Start -->

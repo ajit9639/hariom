@@ -1,6 +1,7 @@
 <?php 
 include "db.php";
 
+
 $contact_query_result = "SELECT * FROM `jag_site_info`";
 $contact_data = mysqli_query($connection,$contact_query_result);
 $result = mysqli_fetch_assoc($contact_data);
@@ -26,17 +27,29 @@ $result = mysqli_fetch_assoc($contact_data);
                     <h2>Popular Links</h2>
                     <a href="about.php">About Us</a>
                     <a href="about-directors.php">Directors </a>
-                    <a href="team.php">Our Team</a>
+                    <a href="certificates.php">Certificates</a>
+                  <a href="privacy.php">Privacy</a>
+                   <a href="facilities.php">Facilities</a>
+                    <a href="products.php">Products</a>
+                    <a href="contact.php">Contact</a>
                    
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-link">
-                    <h2>Useful Links</h2>
-                    <a href="facilities.php">Facilities</a>
-                    <a href="products.php">Products</a>
-                    <a href="contact.php">Contact</a>
-                   
+                    <h2>Our Products</h2>
+                  <?php
+  $products_query = "SELECT * FROM `jag_product` ORDER BY ID DESC LIMIT 5";
+$product_display = mysqli_query($connection, $products_query);
+while($row123 = mysqli_fetch_assoc($product_display)){
+                ?>
+                   <a href="pdf.php?id=<?php echo $row123['id']?>"><?php echo $row123['title']?></a>
+                  <?php }?>
+                  <a href="products.php" class="btn btn-warning" style="
+    background: #f07d22;
+    color: #fff;
+    font-weight: 700;
+">View All Product</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -54,7 +67,7 @@ $result = mysqli_fetch_assoc($contact_data);
         </div>
     </div>
     <div class="container copyright">
-        <p>&copy; <a href="https://www.hoc-india.com/">Hariom Casting Company (P) Limited</a>, All Right Reserved. Designed By <a href="http://infinitenetsolutions.com/">Infinite Net solutions</a></p>
+        <p>&copy; <a href="https://www.hoc-india.com/"><?php echo date("Y")?> Hariom Casting Company (P) Limited</a>, All Right Reserved. Designed By <a href="http://infinitenetsolutions.com/">Infinite Net solutions</a></p>
     </div>
 </div>
 <!-- Footer End -->
@@ -63,24 +76,28 @@ $result = mysqli_fetch_assoc($contact_data);
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
 <!-- Pre Loader -->
-<div id="loader" class="show">
+<!--<div id="loader" class="show">
     <div class="loader"></div>
-</div>
+</div>-->
 
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
+  <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
 
-<!-- Contact Javascript File -->
-<script src="mail/jqBootstrapValidation.min.js"></script>
-<script src="mail/contact.js"></script>
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
 
-<!-- Template Javascript -->
-<script src="js/main.js"></script>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+ 
+<script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

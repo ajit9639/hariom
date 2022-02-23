@@ -3,7 +3,8 @@ if(!isset($_SESSION))
 { 
     session_start(); 
 } 
- $connection=mysqli_connect('localhost','root',"","Hariom_db");
+$connection=mysqli_connect('localhost','netsolut_hoc',"Hoc@123","netsolut_hoc");
+ //$connection=mysqli_connect('localhost','root',"","Hariom_db");
     //$connection=mysqli_connect('localhost','root',"","shreejagannathdh_db_new");
     //  $connection=mysqli_connect('localhost','shreejagannathdh_shreejagannathdham','Shree@123','shreejagannathdh_shreejagannathdham');
 		/*if($connection){

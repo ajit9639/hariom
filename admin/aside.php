@@ -1,3 +1,4 @@
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: #04263f;">
     <!-- Brand Logo -->
@@ -65,19 +66,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="team.php" class="nav-link"> <i class="far fa-circle nav-icon"></i>
-                                <p>Team</p>
+                                <p>Certificates</p>
                             </a>
                         </li>
                     </ul>
-                    <!-- <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="core_value.php" class="nav-link"> <i class="far fa-circle nav-icon"></i>
-                                <p>Core Value</p>
-                            </a>
-                        </li>
-                    </ul>
+                     
 
-                    <ul class="nav nav-treeview">
+                   <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="mission.php" class="nav-link"> <i class="far fa-circle nav-icon"></i>
                                 <p>Mission & Vission</p>
@@ -203,7 +198,7 @@
                                 <p>Slider Images</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a href="gallery.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Gallery Images</p>
@@ -214,7 +209,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>News Images</p>
                             </a>
-                        </li>
+                        </li>-->
 
                     </ul>
 
@@ -300,12 +295,18 @@
                         <p>Contact Us </p>
                     </a>
                 </li>
-                <!-- <li class="nav-item has-treeview">
-                    <a href="testimonials.php" class="nav-link">
+              <li class="nav-item has-treeview">
+                    <a href="contact1.php" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
-                        <p>Testimonials</p>
+                        <p>Contact Us1</p>
                     </a>
-                </li> -->
+                </li>
+                 <li class="nav-item has-treeview">
+                    <a href="quote.php" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                        <p>Quotes</p>
+                    </a>
+                </li> 
                 <!-- <li class="nav-item has-treeview">
                     <a href="volunteer.php" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>

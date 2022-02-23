@@ -21,7 +21,7 @@ if (isset($_POST['insert'])) {
                 if ($current_id) {
 
                     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                      <strong>Success</strong> Chairman Info is successfully inserted!!
+                      <strong>Success</strong> Facilities is successfully inserted!!
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>

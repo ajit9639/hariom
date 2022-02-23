@@ -1,4 +1,16 @@
-<?php
+<?php include "./include/header.php";
+
+include "db.php";
+
+
+
+$about_query = "SELECT * FROM `jag_product`";
+$about_display = mysqli_query($connection, $about_query);
+$num_row = mysqli_num_rows($about_display);
+
+$contact_query = "SELECT * FROM `contact`";
+$contact_display = mysqli_query($connection, $contact_query);
+$num_row_contact =mysqli_num_rows($contact_display);
 
 
 if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
@@ -25,17 +37,18 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         <div class="inner">
                             <h3><?php //echo mysqli_num_rows($totalorder); ?></h3>
 
-                            <p>New Orders</p>
+                            <p>Total Products : <?php echo $num_row; ?></p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-bag"></i> 
                         </div>
-                        <a href="./pages/user-master/user-history.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
+              
+                <!--<div class="col-lg-3 col-6">
+                  
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>53<sup style="font-size: 20px">%</sup></h3>
@@ -47,13 +60,13 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
+                </div>-->
                 <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
+                <!--<div class="col-lg-3 col-6">
+                  
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3><?php //echo mysqli_num_rows($totaluser);  ?></h3>
+                           
 
                             <p>User Registrations</p>
                         </div>
@@ -62,7 +75,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         </div>
                         <a href="./pages/product/product.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
+                </div>-->
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
@@ -70,12 +83,12 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         <div class="inner">
                             <h3><?php // echo mysqli_num_rows($totalorder); ?></h3>
 
-                            <p>Unique Visitors</p>
+                            <p>Unique Visitors : <?php echo $num_row_contact; ?></p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="./pages/product/product.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

@@ -100,12 +100,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                     <tbody>
 
-                      <?php
-                        $cnt=1;
-                      if (mysqli_num_rows($result) > 0) {
-                        while ($rows = mysqli_fetch_array($result)) {
-
-                      ?> <!-- Modal -->
+                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal<?php echo $rows['con_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -126,6 +121,12 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         </div>
                       </div>
                       <!-- massage end -->
+                      
+                       <?php
+                          $cnt=1;
+                        while ($rows = mysqli_fetch_array($result)) 
+                        {
+                        ?>
                           <tr>
                             <td><?php echo $cnt; ?></td>
                             <td><?php echo $rows['con_name']; ?></td>
@@ -140,9 +141,9 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                           
 
                           </tr>
-                      <?php }
-                      } 
-                      $cnt++; ?>
+                     <?php 
+                        $cnt++;
+                        }  ?>
                     </tbody>
                     <tfoot>
                       <tr>

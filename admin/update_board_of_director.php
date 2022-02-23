@@ -55,12 +55,12 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Update Patron</h1>
+                                <h1>Update Director</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active">Patron</li>
+                                    <li class="breadcrumb-item active">Director</li>
                                 </ol>
                             </div>
                         </div>

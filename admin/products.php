@@ -3,7 +3,7 @@ include 'connection.inc.php';
 
 if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) 
 {
-  $img = "SELECT * FROM `jag_secretary` WHERE 1";
+  $img = "SELECT * FROM `jag_product` WHERE 1";
   $imageresult = mysqli_query($connection, $img);
 
 
@@ -75,13 +75,13 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != ''))
                     <h3 class="card-title">Products</h3>
                   </div>
                   <!-- /.card-header -->
-                  <?php include 'add_founder.php';
-                        include 'update_legal.php';
+                  <?php include 'add_product.php';
+                        include 'update_product.php';
                   // include 'update.php';
                   ?> 
                
                   <div class="card-body">
-                  <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#add_secretary" style="background:#e10d0d">Add Products</a>
+                  <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#add_product" style="background:#e10d0d">Add Products</a>
                   <div class="table-responsive ">
                     <table id="example1" class="table table-bordered table-striped">
 
@@ -89,7 +89,9 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != ''))
                         <tr>
                           <th>ID</th>
                           <th>Title</th>
+                          <th>Category</th>
                           <th>Images</th>
+                          <th>Brochure</th>
                           <th>Description</th>
                           <th>Update</th>
                           <th>Delete</th>
@@ -106,7 +108,14 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != ''))
                             <tr>
                               <td><?php echo $cnt; ?></td>
                               <td><?php echo $rowimage['title']; ?></td>
-                              <td><img height="100px" width="100px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rowimage['image']) . '"' ?> class="img-fluid mb-2" alt="Legal Doc" /></td>
+                              <td><?php echo $rowimage['category']; ?></td>
+                              <td><img height="100px" width="100px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rowimage['image']) . '"' ?> class="img-fluid mb-2" alt="Product Image" /></td>
+                              <td><img height="100px" width="100px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rowimage['brochure']) . '"' ?> class="img-fluid mb-2" alt="Product Image" /></td>
+                              
+                              <!--<td><object type="application/pdf" <?php echo ' data="data:application/pdf;base64,' . base64_encode($rowimage['brochure']) . '"' ?> width="300" height="200"></object></td>-->
+                              
+                             
+                              
                               <td><?php echo $rowimage['description']; ?></td>
                               <td><a href="update_products.php?edit=<?php echo $rowimage['id']; ?>" class="btn btn-warning">Update</a>
                               <td> <a href="delete_products.php?delete=<?php echo $rowimage['id']; ?>" class="btn btn-danger">Delete</a>
@@ -119,7 +128,9 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != ''))
                       <tr>
                           <th>ID</th>
                           <th>Title</th>
+                          <th>Category</th>
                           <th>Images</th>
+                          <th>Brochure</th>
                           <th>Description</th>
                           <th>Update</th>
                           <th>Delete</th>

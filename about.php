@@ -16,53 +16,31 @@ $about_display2 = mysqli_query($connection, $about_query2);
 $about_result2 = mysqli_fetch_assoc($about_display2);
 
 
+$about_query3 = "SELECT * FROM `jag_about_us` WHERE `title`='Mission'";
+$about_display3 = mysqli_query($connection, $about_query3);
+$about_result3 = mysqli_fetch_assoc($about_display3);
+
+$about_query4 = "SELECT * FROM `jag_about_us` WHERE `title`='Vission'";
+$about_display4 = mysqli_query($connection, $about_query4);
+$about_result4 = mysqli_fetch_assoc($about_display4);
 
 
 ?>
 
 
-<!-- Page Header Start -->
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>About Us</h2>
-            </div>
-            <div class="col-12">
-                <a href="">Home</a>
-                <a href="">About Us</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
 
+<img src="img/about-us.jpg" style="width:100%"/>
 
 <!-- About Start -->
-<div class="about">
+<div class="about" style="margin-top:70px;">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="about-img">
-                    <!-- <img src="img/about.jpg" alt="Image"> -->
-                    <img height="100px" width="100px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($about_result['image']) . '"' ?> class="img-fluid mb-2" alt="Legal Doc" />
+            <!--<div class="col-lg-4">
+                <div class="about-img text-center">
+                  
+                    <img style="width:290px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($about_result['image']) . '"' ?> class="img-fluid mb-2" alt="Legal Doc" />
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="section-header text-left">
-                    <p><?php echo $about_result['title']; ?></p>
-                    <!-- <h2>Hariom Casting Company (P) Limited</h2> -->
-                </div>
-                <div class="about-content">
-                    <p>
-                        <?php echo $about_result['description']; ?>
-                    </p>
-                   
-                </div>
-            </div>
-
-
-
+            </div>-->
             <div class="col-lg-12">
                 <div class="section-header text-left">
                     <p><?php echo $about_result1['title']; ?></p>
@@ -72,25 +50,10 @@ $about_result2 = mysqli_fetch_assoc($about_display2);
                     <p>
                         <?php echo $about_result1['description']; ?>
                     </p>
-
+                   
                 </div>
             </div>
 
-
-
-
-            <div class="col-lg-12">
-                <div class="section-header text-left">
-                    <p><?php echo $about_result2['title']; ?></p>
-                    <!-- <h2>Hariom Casting Company (P) Limited</h2> -->
-                </div>
-                <div class="about-content">
-                    <p>
-                        <?php echo $about_result2['description']; ?>
-                    </p>
-
-                </div>
-            </div>
 
         </div>
     </div>
