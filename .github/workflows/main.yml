@@ -15,4 +15,3 @@ jobs:
         server: hoc-india.com
         username:    Hoc@hoc-india.com
         password: ${{ secrets.ftp_password }}
-        # i have to added the password
